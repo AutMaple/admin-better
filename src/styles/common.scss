@@ -1,0 +1,67 @@
+body,
+p,
+ul,
+ol,
+dl,
+dd,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+ul,
+ol,
+th,
+td,
+button,
+input,
+fieldset,
+legend,
+textarea,
+option {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+button {
+  border: 0;
+  outline: none;
+}
+
+i,
+em,
+strong,
+b {
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  font-family: "微软雅黑", serif !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  vertical-align: top;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
