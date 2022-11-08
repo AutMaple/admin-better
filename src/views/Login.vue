@@ -81,6 +81,13 @@
       "el-col": Col,
       "el-button": Button,
     },
+    directives: {
+      focus: {
+        inserted(el) {
+          el.querySelector("input").focus();
+        },
+      },
+    },
     data() {
       const validateUsername = (rule, value, callback) => {
         if ("" === value) {
@@ -126,7 +133,7 @@
     },
     watch: {
       $route: {
-        handle(route) {
+        handler(route) {
           this.redirect = (route.query && route.query.redirect) || "/";
         },
         immediate: true,
@@ -156,12 +163,26 @@
       },
       handleLogin() {
         this.$refs.form.validate((valid) => {
-          if(valid) {
-            this.loading =true;
-            this.$store.dispatch('user/login', this.form)
+          if (valid) {
+            this.loading = true;
+            this.$store
+              .dispatch("user/login", this.form)
+              .then(() => {
+                const routerPath =
+                  this.redirect === "/404" || this.redirect === "/401"
+                    ? "/"
+                    : this.redirect;
+                this.$router.push(routerPath).catch(() => {});
+                this.loading = false;
+              })
+              .catch(() => {
+                this.loading = false;
+              });
+          } else {
+            return false;
           }
-        })
-      }
+        });
+      },
     },
   };
 </script>

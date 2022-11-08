@@ -56,4 +56,4 @@ const getters = {
   permissions: (state) => state.permissions
 }
 
-export default {state, actions, mutations, getters};
+export default {namespaced: true,state, actions, mutations, getters};

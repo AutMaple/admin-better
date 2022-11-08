@@ -1,8 +1,9 @@
-import defaultSettings from "@/configs"
+import defaultSettings from "@/configs";
 
-const {tabsBar, logo, layout, header, themeBar} = defaultSettings
+const { tabsBar, logo, layout, header, themeBar } = defaultSettings;
 
-const theme = JSON.parse(localStorage.getItem("vue-admin-beautiful-theme")) || ''
+const theme =
+  JSON.parse(localStorage.getItem("vue-admin-beautiful-theme")) || "";
 
 const state = {
   tabsBar: theme.tabsBar || tabsBar,
@@ -12,52 +13,52 @@ const state = {
   header: theme.header || header,
   device: "desktop",
   themeBar,
-}
+};
 
 const actions = {
-  changeLayout({commit}, layout) {
+  changeLayout({ commit }, layout) {
     commit("changeLayout", layout);
   },
-  changeHeader({commit}, header) {
-    commit("changeHeader", header)
+  changeHeader({ commit }, header) {
+    commit("changeHeader", header);
   },
-  changeTabsBar({commit}, tabsBar) {
-    commit("changeTabsBar", tabsBar)
+  changeTabsBar({ commit }, tabsBar) {
+    commit("changeTabsBar", tabsBar);
   },
-  changeCollapse({commit}) {
-    commit("changeCollapse")
+  changeCollapse({ commit }) {
+    commit("changeCollapse");
   },
-  foldSideBar({commit}) {
-    commit("foldSideBar")
+  foldSideBar({ commit }) {
+    commit("foldSideBar");
   },
-  openSideBar({commit}) {
-    commit("openSideBar")
+  openSideBar({ commit }) {
+    commit("openSideBar");
   },
-  toggleDevice({commit}, device) {
-    commit("toggleDevice", device)
-  }
-}
+  toggleDevice({ commit }, device) {
+    commit("toggleDevice", device);
+  },
+};
 
 const mutations = {
   changeLayout(state, layout) {
-    if (layout) state.layout = layout
+    if (layout) state.layout = layout;
   },
   changeHeader(state, header) {
-    if (header) state.header = header
+    if (header) state.header = header;
   },
   changeTabsBar(state, tabsBar) {
-    if (tabsBar) state.tabsBar = tabsBar
+    if (tabsBar) state.tabsBar = tabsBar;
   },
   changeCollapse(state) {
-    state.collapse = !state.collapse
+    state.collapse = !state.collapse;
   },
   foldSideBar(state) {
-    state.collapse = false
+    state.collapse = false;
   },
   toggleDevice(state, device) {
     state.device = device;
-  }
-}
+  },
+};
 
 const getters = {
   collapse: (state) => state.collapse,
@@ -67,6 +68,6 @@ const getters = {
   logo: (state) => state.logo,
   tabsBar: (state) => state.tabsBar,
   themeBar: (state) => state.themeBar,
-}
+};
 
-export default {state, actions, mutations, getters}
+export default {namespaced: true, state, actions, mutations, getters}

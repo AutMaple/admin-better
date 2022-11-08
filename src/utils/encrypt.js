@@ -9,7 +9,7 @@ const privateKey = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMFPa+v52FkS
  */
 export async function encryptedData(data) {
   let publicKey = '';
-  const res = await getPublicKey();
+  const res = await getPublicKey(); // 这个方法出问题了
   publicKey = res.data.publicKey
   if (res.data.mockServer) {
     publicKey = ""
