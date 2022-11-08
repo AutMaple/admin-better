@@ -1,5 +1,5 @@
 export default {
-  baseURL: "vab-mock-server", // 默认的接口地址
+  baseURL: "http://127.0.0.1:4523/m1/1892329-0-default", // 默认的接口地址
   contentType: "application/json;charset=UTF-8",
   messageDuration: 3000, // 消息框消失的时间
   requestTimeout: 5000, // 最长的请求时间

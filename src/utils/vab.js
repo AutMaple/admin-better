@@ -85,7 +85,7 @@ const install = (Vue) => {
   /**
    * 全局 Message
    */
-  Vue.prototype.$baseMessage = (message, type) => {
+  Vue.prototype.$baseMessage = function (message, type) {
     Message({
       offset: 60,
       showClose: true,
@@ -178,9 +178,10 @@ const install = (Vue) => {
   Vue.prototype.$baseEventBus = new Vue()
 }
 
-if (typeof window === 'undefined' && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
+
 
 export default install
 

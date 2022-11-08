@@ -6,8 +6,8 @@ Vue.use(VueRouter);
 export default new VueRouter({
   routes: [
     {
-      path: "",
-      redirect: "/login",
+      path: "/",
+      redirect: "/index",
     },
     {
       path: "/index",

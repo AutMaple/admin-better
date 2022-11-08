@@ -1,24 +1,36 @@
-import config from "@/configs"
+import configs from "@/configs"
 import store from "@/store"
 import Vue from "vue"
 import router from "@/router";
 import axios from "axios";
 import qs from "qs";
-import {debounce, isArray} from "lodash";
+import {isArray} from "lodash";
+
+let {
+  baseURL,
+  requestTimeout,
+  contentType,
+  debounce,
+  successCode,
+  invalidCode,
+  loginInterception,
+  noPermissionCode,
+  tokenName,
+} = configs
 
 let loadingInstance
 
 const handleCode = (code, msg) => {
   switch (code) {
-    case config.invalidCode :
+    case invalidCode:
       Vue.prototype.$baseMessage(msg || `后端接口${code} 异常`, 'error')
       store.dispatch("user/resetAccessToken").catch(() => {
       })
-      if (config.loginInterception) {
+      if (loginInterception) {
         location.reload()
       }
       break
-    case config.noPermissionCode:
+    case noPermissionCode:
       router.push({path: '/401'}).catch(() => {
       })
       break
@@ -29,16 +41,16 @@ const handleCode = (code, msg) => {
 }
 
 const instance = axios.create({
-  baseURL: config.baseURL,
-  timeout: config.requestTimeout,
+  baseURL,
+  timeout: requestTimeout,
   headers: {
-    "Content-Type": config.contentType,
+    "Content-Type": contentType
   }
 })
 
 instance.interceptors.request.use((config) => {
       if (store.getters["user/accessToken"]) {
-        config.headers[this.config.tokenName] = store.getters["user/accessToken"]
+        config.headers[tokenName] = store.getters["user/accessToken"]
       }
 
       // 这里会过滤所有为空、0、false的 key
@@ -63,8 +75,8 @@ instance.interceptors.response.use((response) => {
       const {data, config} = response
       const {code, msg} = data
 
-      // 操作正常 Code 的数组
-      const codeVerificationArray = isArray(this.config.successCode) ? [...this.config.successCode] : [...[this.config.successCode]]
+      // 操作正常 Code 的数组 TODO 这行代码出问题
+      const codeVerificationArray = isArray(successCode) ? [...successCode] : [...[successCode]]
 
       // 是否操作正常
       if (codeVerificationArray.includes(code)) {
