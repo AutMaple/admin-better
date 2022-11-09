@@ -56,7 +56,7 @@
             登录
           </el-button>
           <router-link to="/register">
-            <div style="margin-top: 20px">注册</div>
+            <div style="margin-top: 20px" class="register-btn">注册</div>
           </router-link>
         </el-form>
       </el-col>
@@ -148,9 +148,9 @@ export default {
   mounted() {
     this.form.username = "admin";
     this.form.password = "123456";
-    setTimeout(() => {
-      this.handleLogin();
-    }, 3000);
+    // setTimeout(() => {
+    //   this.handleLogin();
+    // }, 3000);
   },
   methods: {
     handlePassword() {
@@ -217,7 +217,7 @@ export default {
     display: inherit;
     width: 220px;
     height: 60px;
-    margin-top: 5px;
+    margin: 5px 0;
     border: 0;
 
     &:hover {
@@ -291,6 +291,10 @@ export default {
     user-select: none;
   }
 
+  .register-btn {
+    color: $base-color-blue;
+  }
+
   ::v-deep {
     .el-form-item {
       padding-right: 0;
@@ -303,6 +307,7 @@ export default {
       &__content {
         min-height: $base-input-height;
         line-height: $base-input-height;
+        margin-left: 0 !important;
       }
 
       &__error {

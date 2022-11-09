@@ -75,7 +75,7 @@ instance.interceptors.response.use((response) => {
       const {data, config} = response
       const {code, msg} = data
 
-      // 操作正常 Code 的数组 TODO 这行代码出问题
+      // 操作正常 Code 的数组
       const codeVerificationArray = isArray(successCode) ? [...successCode] : [...[successCode]]
 
       // 是否操作正常

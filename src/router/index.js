@@ -17,5 +17,9 @@ export default new VueRouter({
       path: "/login",
       component: () => import("@/views/Login"),
     },
+    {
+      path: "/register",
+      component: () => import("@/views/Register")
+    }
   ],
 });
