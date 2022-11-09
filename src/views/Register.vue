@@ -151,7 +151,7 @@
             },
           ],
           password: [
-            { required: true, trigger: "blur", message: "请输入用户名" },
+            { required: true, trigger: "blur", message: "请输入密码" },
             {
               validator: validatePassword,
               trigger: "blur",

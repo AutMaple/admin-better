@@ -20,6 +20,10 @@ export default new VueRouter({
     {
       path: "/register",
       component: () => import("@/views/Register")
+    },
+    {
+      path: "/401",
+      component: () => import("@/views/401")
     }
   ],
 });
