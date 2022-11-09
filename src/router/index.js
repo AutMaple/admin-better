@@ -10,10 +10,6 @@ export default new VueRouter({
       redirect: "/index",
     },
     {
-      path: "/index",
-      component: () => import("@/views/Index"),
-    },
-    {
       path: "/login",
       component: () => import("@/views/Login"),
     },
@@ -28,7 +24,10 @@ export default new VueRouter({
     {
       path: "/404",
       component: () => import("@/views/404")
-    }
-
+    },
+    {
+      path: "/index",
+      component: () => import("@/views/Index"),
+    },
   ],
 });
