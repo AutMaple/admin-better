@@ -8,6 +8,13 @@ export default new VueRouter({
     {
       path: "/",
       redirect: "/index",
+      component: () => import("@/views/Layout"),
+      children: [
+        {
+          path: "index",
+          component: () => import("@/views/Index"),
+        },
+      ],
     },
     {
       path: "/login",
@@ -15,19 +22,15 @@ export default new VueRouter({
     },
     {
       path: "/register",
-      component: () => import("@/views/Register")
+      component: () => import("@/views/Register"),
     },
     {
       path: "/401",
-      component: () => import("@/views/401")
+      component: () => import("@/views/401"),
     },
     {
       path: "/404",
-      component: () => import("@/views/404")
-    },
-    {
-      path: "/index",
-      component: () => import("@/views/Index"),
+      component: () => import("@/views/404"),
     },
   ],
 });

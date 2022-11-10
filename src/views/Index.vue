@@ -3,15 +3,15 @@
     <el-row :gutter="20">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <el-alert v-if="noticeList[0]" :closable="noticeList[0].closable">
-          <div style="display: flex; align-items: center; justify-content: center">
+          <div
+            style="display: flex; align-items: center; justify-content: center">
             <a
-                target="_blank"
-                href="https://github.com/chuzhixin/vue-admin-better"
-            >
+              target="_blank"
+              href="https://github.com/chuzhixin/vue-admin-better">
               <img
-                  style="margin-right: 10px"
-                  src="https://img.shields.io/github/stars/chuzhixin/vue-admin-better?style=flat-square&label=Stars&logo=github"
-                  alt="这是一张图片"/>
+                style="margin-right: 10px"
+                src="https://img.shields.io/github/stars/chuzhixin/vue-admin-better?style=flat-square&label=Stars&logo=github"
+                alt="这是一张图片" />
             </a>
             <p v-html="noticeList[0].title"></p>
           </div>
@@ -22,20 +22,20 @@
           <div slot="header">
             <span>访问量</span>
           </div>
-          <vab-chart autoresize :options="fwl"/>
+                    <vab-chart autoresize :option="fwl"/>
+<!--          <vab-chart autoresize :option="line" />-->
           <div class="bottom">
             <span>
               日均访问量:
 
               <vab-count
-                  :start-val="config1.startVal"
-                  :end-val="config1.endVal"
-                  :duration="config1.duration"
-                  :separator="config1.separator"
-                  :prefix="config1.prefix"
-                  :suffix="config1.suffix"
-                  :decimals="config1.decimals"
-              />
+                :start-val="config1.startVal"
+                :end-val="config1.endVal"
+                :duration="config1.duration"
+                :separator="config1.separator"
+                :prefix="config1.prefix"
+                :suffix="config1.suffix"
+                :decimals="config1.decimals" />
             </span>
           </div>
         </el-card>
@@ -45,38 +45,35 @@
           <div slot="header">
             <span>授权数</span>
           </div>
-          <vab-chart autoresize :options="sqs"/>
+          <vab-chart autoresize :option="sqs" />
           <div class="bottom">
             <span>
               总授权数:
               <vab-count
-                  :start-val="config2.startVal"
-                  :end-val="config2.endVal"
-                  :duration="config2.duration"
-                  :separator="config2.separator"
-                  :prefix="config2.prefix"
-                  :suffix="config2.suffix"
-                  :decimals="config2.decimals"
-              />
+                :start-val="config2.startVal"
+                :end-val="config2.endVal"
+                :duration="config2.duration"
+                :separator="config2.separator"
+                :prefix="config2.prefix"
+                :suffix="config2.suffix"
+                :decimals="config2.decimals" />
             </span>
           </div>
         </el-card>
       </el-col>
       <el-col
-          v-for="(item, index) in iconList"
-          :key="index"
-          :xs="12"
-          :sm="6"
-          :md="3"
-          :lg="3"
-          :xl="3"
-      >
+        v-for="(item, index) in iconList"
+        :key="index"
+        :xs="12"
+        :sm="6"
+        :md="3"
+        :lg="3"
+        :xl="3">
         <router-link :to="item.link" target="_blank">
           <el-card class="icon-panel" shadow="never">
             <vab-icon
-                :style="{ color: item.color }"
-                :icon="['fas', item.icon]"
-            ></vab-icon>
+              :style="{ color: item.color }"
+              :icon="['fas', item.icon]"></vab-icon>
             <p>{{ item.title }}</p>
           </el-card>
         </router-link>
@@ -99,9 +96,8 @@
               </a>
             </el-popover>
             <a
-                target="_blank"
-                href="https://github.com/chuzhixin/vue-admin-better"
-            >
+              target="_blank"
+              href="https://github.com/chuzhixin/vue-admin-better">
               <el-button type="warning">github下载源码点star</el-button>
             </a>
             <a target="_blank" href="https://vue-admin-beautiful.com">
@@ -121,39 +117,39 @@
           <table class="table">
             <tr>
               <td>@vue/cli版本</td>
-              <td>{{ devDependencies['@vue/cli-service'] }}</td>
+              <td>{{ devDependencies["@vue/cli-service"] }}</td>
               <td>vue版本</td>
-              <td>{{ dependencies['vue'] }}</td>
+              <td>{{ dependencies["vue"] }}</td>
             </tr>
             <tr>
               <td>vuex版本</td>
-              <td>{{ dependencies['vuex'] }}</td>
+              <td>{{ dependencies["vuex"] }}</td>
               <td>vue-router版本</td>
-              <td>{{ dependencies['vue-router'] }}</td>
+              <td>{{ dependencies["vue-router"] }}</td>
             </tr>
             <tr>
               <td>element-ui版本</td>
-              <td>{{ dependencies['element-ui'] }}</td>
+              <td>{{ dependencies["element-ui"] }}</td>
               <td>axios版本</td>
-              <td>{{ dependencies['axios'] }}</td>
+              <td>{{ dependencies["axios"] }}</td>
             </tr>
             <tr>
               <td>eslint版本</td>
-              <td>{{ devDependencies['eslint'] }}</td>
+              <td>{{ devDependencies["eslint"] }}</td>
               <td>prettier版本</td>
-              <td>{{ devDependencies['prettier'] }}</td>
+              <td>{{ devDependencies["prettier"] }}</td>
             </tr>
             <tr>
               <td>sass版本</td>
-              <td>{{ devDependencies['sass'] }}</td>
+              <td>{{ devDependencies["sass"] }}</td>
               <td>mockjs版本</td>
-              <td>{{ dependencies['mockjs'] }}</td>
+              <td>{{ dependencies["mockjs"] }}</td>
             </tr>
             <tr>
               <td>zx-layouts版本</td>
-              <td>{{ dependencies['zx-layouts'] }}</td>
+              <td>{{ dependencies["zx-layouts"] }}</td>
               <td>lodash版本</td>
-              <td>{{ dependencies['lodash'] }}</td>
+              <td>{{ dependencies["lodash"] }}</td>
             </tr>
           </table>
         </el-card>
@@ -163,16 +159,15 @@
             <span>其他信息</span>
           </div>
           <div style="text-align: center">
-            <vab-colorful-icon style="font-size: 140px" icon-class="vab" />
+            <!--            <vab-colorful-icon style="font-size: 140px" icon-class="vab" />-->
             <h1 style="font-size: 30px">vue-admin-better</h1>
           </div>
           <div v-for="(item, index) in noticeList" :key="index">
             <el-alert
-                v-if="index !== 0"
-                :title="item.title"
-                :type="item.type"
-                :closable="item.closable"
-            ></el-alert>
+              v-if="index !== 0"
+              :title="item.title"
+              :type="item.type"
+              :closable="item.closable"></el-alert>
             <br />
           </div>
           <el-alert :closable="false" :title="userAgent" type="info"></el-alert>
@@ -186,11 +181,10 @@
           </div>
           <el-timeline :reverse="reverse">
             <el-timeline-item
-                v-for="(activity, index) in activities"
-                :key="index"
-                :timestamp="activity.timestamp"
-                :color="activity.color"
-            >
+              v-for="(activity, index) in activities"
+              :key="index"
+              :timestamp="activity.timestamp"
+              :color="activity.color">
               {{ activity.content }}
             </el-timeline-item>
           </el-timeline>
@@ -202,484 +196,532 @@
   </div>
 </template>
 <script>
-import {Alert, Card, Col, Row} from "element-ui";
-import VabChart from "@/plugins/echarts";
+  import {
+    Alert,
+    Card,
+    Col,
+    Row,
+    Popover,
+    Image,
+    Button,
+    Timeline,
+    TimelineItem,
+  } from "element-ui";
+  import VabChart from "@/plugins/echartsConfig";
 
+  import { dependencies, devDependencies } from "../../package.json";
+  import { getList } from "@/api/changeLog";
+  import { getNoticeList } from "@/api/notice";
+  import Plan from "@/components/Plan";
+  import VersionInformation from "@/components/VersionInformation";
 
-import {dependencies, devDependencies} from "../../package.json";
-import {getList} from "@/api/changeLog";
-import {getNoticeList} from "@/api/notice";
-
-
-export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Index",
-  components: {
-    "el-row": Row,
-    "el-col": Col,
-    "el-alert": Alert,
-    "el-card": Card,
-    "vab-chart": VabChart,
-  },
-  data() {
-    return {
-      timer: 0,
-      updateTime: process.env.VUE_APP_UPDATE_TIME,
-      nodeEnv: process.env.NODE_ENV,
-      dependencies,
-      devDependencies,
-      config1: {
-        startVal: 0,
-        endVal: this.$baseLodash.random(2000, 60000),
-        decimals: 0,
-        prefix: "",
-        suffix: "",
-        separator: ",",
-        duration: 8000
-      },
-      config2: {
-        startVal: 0,
-        endVal: this.$baseLodash.random(1000, 20000),
-        decimals: 0,
-        prefix: "",
-        suffix: "",
-        separator: ",",
-        duration: 8000
-      },
-      config3: {
-        startVal: 0,
-        endVal: this.$baseLodash.random(1000, 20000),
-        decimals: 0,
-        prefix: "",
-        suffix: "",
-        separator: ",",
-        duration: 8000
-      },
-      fwl: {
-        color: [
-          "#1890ff",
-          '#36CBCB',
-          '#4ECB73',
-          '#FBD437',
-          '#F2637B',
-          '#975FE5',
-        ],
-        backgroundColor: "rgba(252,252,252,0)",
-        grid: {
-          top: "4%",
-          left: "2%",
-          right: "4%",
-          bottom: "0%",
-          containLabel: true,
+  export default {
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: "Index",
+    components: {
+      VersionInformation,
+      Plan,
+      [Row.name]: Row,
+      [Col.name]: Col,
+      [Alert.name]: Alert,
+      [Card.name]: Card,
+      [Popover.name]: Popover,
+      [Image.name]: Image,
+      [Button.name]: Button,
+      [TimelineItem.name]: TimelineItem,
+      [Timeline.name]: Timeline,
+      // [VabChart.name]: VabChart,
+      "vab-chart": VabChart,
+      [Plan.name]: Plan,
+      [VersionInformation.name]: VersionInformation,
+    },
+    data() {
+      return {
+        timer: 0,
+        updateTime: process.env.VUE_APP_UPDATE_TIME,
+        nodeEnv: process.env.NODE_ENV,
+        dependencies: dependencies,
+        devDependencies: devDependencies,
+        config1: {
+          startVal: 0,
+          endVal: this.$baseLodash.random(20000, 60000),
+          decimals: 0,
+          prefix: "",
+          suffix: "",
+          separator: ",",
+          duration: 8000,
         },
-        xAxis: [
-          {
-            type: 'category',
-            boundaryGap: false,
-            data: [],
-            axisTick: {
-              alignWithLabel: true,
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: "value"
-          }
-        ],
-        series: [
-          {
-            name: '访问量',
-            type: 'line',
-            data: [],
-            smooth: true,
-            areaStyle: {},
-          }
-        ],
-      },
-      sqs: {
-        color: [
-          '#1890FF',
-          '#36CBCB',
-          '#4ECB73',
-          '#FBD437',
-          '#F2637B',
-          '#975FE5',
-        ],
-        backgroundColor: "rgba(252,252, 252, 0)",
-        grid: {
-          top: "4%",
-          left: "2%",
-          right: "4%",
-          bottom: "0%",
-          containLabel: true,
+        config2: {
+          startVal: 0,
+          endVal: this.$baseLodash.random(1000, 20000),
+          decimals: 0,
+          prefix: "",
+          suffix: "",
+          separator: ",",
+          duration: 8000,
         },
-        xAxis: [
-          {
-            type: "category",
-            data: ['0时', '4时', '8时', '12时', '16时', '20时', '24时'],
-            axisTick: {
-              alignWithLabel: true,
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value',
-          }
-        ],
-        series: [
-          {
-            name: "授权数",
-            type: "bar",
-            barWidth: "60%",
-            data: [10, 52, 20, 33, 39, 33, 22]
-          }
-        ]
-      },
-      cy: {
-        grid: {
-          top: '4%',
-          left: '2%',
-          right: '4%',
-          bottom: '0%',
+        config3: {
+          startVal: 0,
+          endVal: this.$baseLodash.random(1000, 20000),
+          decimals: 0,
+          prefix: "",
+          suffix: "",
+          separator: ",",
+          duration: 8000,
         },
-        series: [
-          {
-            type: 'wordCloud',
-            gridSize: 15,
-            sizeRange: [12, 40],
-            rotationRange: [0, 0],
-            width: '100%',
-            height: '100%',
-            textStyle: {
-              normal: {
-                color() {
-                  const arr = [
-                    '#5470c6',
-                    '#91cc75',
-                    '#fac858',
-                    '#ee6666',
-                    '#73c0de',
-                    '#975FE5',
-                  ]
-                  let index = Math.floor(Math.random() * arr.length)
-                  return arr[index]
-                },
+
+        //访问量
+        fwl: {
+          color: [
+            "#1890FF",
+            "#36CBCB",
+            "#4ECB73",
+            "#FBD437",
+            "#F2637B",
+            "#975FE5",
+          ],
+          backgroundColor: "rgba(252,252,252,0)",
+          grid: {
+            top: "4%",
+            left: "2%",
+            right: "4%",
+            bottom: "0%",
+            containLabel: true,
+          },
+          xAxis: [
+            {
+              type: "category",
+              boundaryGap: false,
+              data: [],
+              axisTick: {
+                alignWithLabel: true,
               },
             },
-            data: [
-              {
-                name: 'vue-admin-better',
-                value: 15000,
-              },
-              {
-                name: 'element',
-                value: 10081,
-              },
-              {
-                name: 'beautiful',
-                value: 9386,
-              },
+          ],
 
-              {
-                name: 'vue',
-                value: 6500,
+          yAxis: [
+            {
+              type: "value",
+            },
+          ],
+
+          series: [
+            {
+              name: "访问量",
+              type: "line",
+              data: [],
+              smooth: true,
+              areaStyle: {},
+            },
+          ],
+        },
+        line: {
+          xAxis: {
+            type: "category",
+            boundaryGap: false,
+            data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          },
+          yAxis: {
+            type: "value",
+          },
+          series: [
+            {
+              data: [820, 932, 901, 934, 1290, 1330, 1320],
+              type: "line",
+              areaStyle: {},
+            },
+          ],
+        },
+        //授权数
+        sqs: {
+          color: [
+            "#1890FF",
+            "#36CBCB",
+            "#4ECB73",
+            "#FBD437",
+            "#F2637B",
+            "#975FE5",
+          ],
+          backgroundColor: "rgba(252,252,252,0)",
+          grid: {
+            top: "4%",
+            left: "2%",
+            right: "4%",
+            bottom: "0%",
+            containLabel: true,
+          },
+          xAxis: [
+            {
+              type: "category",
+              /*boundaryGap: false,*/
+              data: ["0时", "4时", "8时", "12时", "16时", "20时", "24时"],
+              axisTick: {
+                alignWithLabel: true,
               },
-              {
-                name: 'chuzhixin',
-                value: 6000,
+            },
+          ],
+          yAxis: [
+            {
+              type: "value",
+            },
+          ],
+          series: [
+            {
+              name: "授权数",
+              type: "bar",
+              barWidth: "60%",
+              data: [10, 52, 20, 33, 39, 33, 22],
+            },
+          ],
+        },
+        //词云
+        cy: {
+          grid: {
+            top: "4%",
+            left: "2%",
+            right: "4%",
+            bottom: "0%",
+          },
+          series: [
+            {
+              type: "wordCloud",
+              gridSize: 15,
+              sizeRange: [12, 40],
+              rotationRange: [0, 0],
+              width: "100%",
+              height: "100%",
+              textStyle: {
+                normal: {
+                  color() {
+                    const arr = [
+                      "#5470c6",
+                      "#91cc75",
+                      "#fac858",
+                      "#ee6666",
+                      "#73c0de",
+                      "#975FE5",
+                    ];
+                    let index = Math.floor(Math.random() * arr.length);
+                    return arr[index];
+                  },
+                },
               },
-              {
-                name: 'good',
-                value: 4500,
-              },
-              {
-                name: 'success',
-                value: 3800,
-              },
-              {
-                name: 'never',
-                value: 3000,
-              },
-              {
-                name: 'boy',
-                value: 2500,
-              },
-              {
-                name: 'girl',
-                value: 2300,
-              },
-              {
-                name: 'github',
-                value: 2000,
-              },
-              {
-                name: 'hbuilder',
-                value: 1900,
-              },
-              {
-                name: 'dcloud',
-                value: 1800,
-              },
-              {
-                name: 'china',
-                value: 1700,
-              },
-              {
-                name: '1204505056',
-                value: 1600,
-              },
-              {
-                name: '972435319',
-                value: 1500,
-              },
-              {
-                name: 'young',
-                value: 1200,
-              },
-              {
-                name: 'old',
-                value: 1100,
-              },
-              {
-                name: 'vuex',
-                value: 900,
-              },
-              {
-                name: 'router',
-                value: 800,
-              },
-              {
-                name: 'money',
-                value: 700,
-              },
-              {
-                name: 'qingdao',
-                value: 800,
-              },
-              {
-                name: 'yantai',
-                value: 9000,
-              },
-              {
-                name: 'author is very cool',
-                value: 9200,
-              },
-            ],
+              data: [
+                {
+                  name: "vue-admin-better",
+                  value: 15000,
+                },
+                {
+                  name: "element",
+                  value: 10081,
+                },
+                {
+                  name: "beautiful",
+                  value: 9386,
+                },
+
+                {
+                  name: "vue",
+                  value: 6500,
+                },
+                {
+                  name: "chuzhixin",
+                  value: 6000,
+                },
+                {
+                  name: "good",
+                  value: 4500,
+                },
+                {
+                  name: "success",
+                  value: 3800,
+                },
+                {
+                  name: "never",
+                  value: 3000,
+                },
+                {
+                  name: "boy",
+                  value: 2500,
+                },
+                {
+                  name: "girl",
+                  value: 2300,
+                },
+                {
+                  name: "github",
+                  value: 2000,
+                },
+                {
+                  name: "hbuilder",
+                  value: 1900,
+                },
+                {
+                  name: "dcloud",
+                  value: 1800,
+                },
+                {
+                  name: "china",
+                  value: 1700,
+                },
+                {
+                  name: "1204505056",
+                  value: 1600,
+                },
+                {
+                  name: "972435319",
+                  value: 1500,
+                },
+                {
+                  name: "young",
+                  value: 1200,
+                },
+                {
+                  name: "old",
+                  value: 1100,
+                },
+                {
+                  name: "vuex",
+                  value: 900,
+                },
+                {
+                  name: "router",
+                  value: 800,
+                },
+                {
+                  name: "money",
+                  value: 700,
+                },
+                {
+                  name: "qingdao",
+                  value: 800,
+                },
+                {
+                  name: "yantai",
+                  value: 9000,
+                },
+                {
+                  name: "author is very cool",
+                  value: 9200,
+                },
+              ],
+            },
+          ],
+        },
+
+        //更新日志
+        reverse: true,
+        activities: [],
+        noticeList: [],
+        //其他信息
+        userAgent: navigator.userAgent,
+        //卡片图标
+        iconList: [
+          {
+            icon: "video",
+            title: "视频播放器",
+            link: "/vab/player",
+            color: "#ffc069",
+          },
+          {
+            icon: "table",
+            title: "表格",
+            link: "/vab/table/comprehensiveTable",
+            color: "#5cdbd3",
+          },
+          {
+            icon: "laptop-code",
+            title: "源码",
+            link: "https://github.com/chuzhixin/vue-admin-better",
+            color: "#b37feb",
+          },
+          {
+            icon: "book",
+            title: "书籍",
+            link: "",
+            color: "#69c0ff",
+          },
+          {
+            icon: "bullhorn",
+            title: "公告",
+            link: "",
+            color: "#ff85c0",
+          },
+          {
+            icon: "gift",
+            title: "礼物",
+            link: "",
+            color: "#ffd666",
+          },
+
+          {
+            icon: "balance-scale-left",
+            title: "公平的世界",
+            link: "",
+            color: "#ff9c6e",
+          },
+          {
+            icon: "coffee",
+            title: "休息一下",
+            link: "",
+            color: "#95de64",
           },
         ],
-      },
-
-      //更新日志
-      reverse: true,
-      activities: [],
-      noticeList: [],
-      //其他信息
-      userAgent: navigator.userAgent,
-      iconList: [
-        {
-          icon: 'video',
-          title: '视频播放器',
-          link: '/vab/player',
-          color: '#ffc069',
-        },
-        {
-          icon: 'table',
-          title: '表格',
-          link: '/vab/table/comprehensiveTable',
-          color: '#5cdbd3',
-        },
-        {
-          icon: 'laptop-code',
-          title: '源码',
-          link: 'https://github.com/chuzhixin/vue-admin-better',
-          color: '#b37feb',
-        },
-        {
-          icon: 'book',
-          title: '书籍',
-          link: '',
-          color: '#69c0ff',
-        },
-        {
-          icon: 'bullhorn',
-          title: '公告',
-          link: '',
-          color: '#ff85c0',
-        },
-        {
-          icon: 'gift',
-          title: '礼物',
-          link: '',
-          color: '#ffd666',
-        },
-
-        {
-          icon: 'balance-scale-left',
-          title: '公平的世界',
-          link: '',
-          color: '#ff9c6e',
-        },
-        {
-          icon: 'coffee',
-          title: '休息一下',
-          link: '',
-          color: '#95de64',
-        },
-      ],
-    }
-  },
-  created() {
-    this.fetchData()
-  },
-  beforeDestroy() {
-    clearInterval(this.timer);
-  },
-  mounted() {
-    let base = +new Date(2020, 1, 1)
-    let oneDay = 20 * 3600 * 1000
-    let date = []
-    let data = [Math.random() * 1500]
-    let now = new Date(base)
-
-    const addData = (shift) => {
-      now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join("/")
-      date.push(now)
-      if (shift) {
-        date.shift()
-        data.shift()
-      }
-
-      now = new Date(+new Date(now) + oneDay)
-    }
-
-    for (let i = 0; i < 6; i++) {
-      addData()
-    }
-    addData(true)
-    this.fwl.xAxis[0].data = date
-    this.fwl.series[0].data = data
-    this.timer = setInterval(() => {
-      addData(true)
-      this.fwl.xAxis[0].data = date
-      this.fwl.series[0].data = data
-    }, 3000)
-  },
-  methods: {
-    handleClick(e) {
-      this.$baseMessage(`点击了${e.name},这里可以写跳转`)
+      };
     },
-    // handleZrClick(e) {
-    // },
-    handleChangeTheme() {
-      this.$baseEventBus.$emit('theme')
+    created() {
+      this.fetchData();
     },
-    async fetchData() {
-      const {data} = await getList()
-      data.map((item, index) => {
-        if (index === data.length - 1) {
-          item.color = '#0bbd87'
+    beforeDestroy() {
+      clearInterval(this.timer);
+    },
+    mounted() {
+      let base = +new Date(2020, 1, 1);
+      let oneDay = 24 * 3600 * 1000;
+      let date = [];
+
+      let data = [Math.random() * 1500];
+      let now = new Date(base);
+
+      const addData = (shift) => {
+        now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join("/");
+        date.push(now);
+        data.push(this.$baseLodash.random(20000, 60000));
+
+        if (shift) {
+          date.shift();
+          data.shift();
         }
-      })
-      this.activities = data
-      const res = await getNoticeList()
-      this.noticeList = res.data
+
+        now = new Date(+new Date(now) + oneDay);
+      };
+
+      for (let i = 1; i < 6; i++) {
+        addData();
+      }
+      addData(true);
+      this.fwl.xAxis[0].data = date;
+      this.fwl.series[0].data = data;
+      this.timer = setInterval(() => {
+        addData(true);
+        this.fwl.xAxis[0].data = date;
+        this.fwl.series[0].data = data;
+      }, 3000);
     },
-  }
-};
+    methods: {
+      handleClick(e) {
+        this.$baseMessage(`点击了${e.name},这里可以写跳转`);
+      },
+      // handleZrClick(e) {
+      // },
+      handleChangeTheme() {
+        this.$baseEventBus.$emit("theme");
+      },
+      async fetchData() {
+        const { data } = await getList();
+        data.map((item, index) => {
+          if (index === data.length - 1) {
+            item.color = "#0bbd87";
+          }
+        });
+        this.activities = data;
+        const res = await getNoticeList();
+        this.noticeList = res.data;
+      },
+    },
+  };
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/common.scss";
-@import "@/styles/variables.scss";
+  @import "@/styles/common.scss";
+  @import "@/styles/variables.scss";
 
-.index-container {
-  padding: 0 !important;
-  margin: 0 !important;
-  background: #f5f7f8 !important;
+  .index-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #f5f7f8 !important;
 
-  ::v-deep {
-    .el-alert {
-      padding: $base-padding;
-
-      &--info.is-light {
-        min-height: 82px;
-        padding: $base-padding;
-        margin-bottom: 15px;
-        color: #909399;
-        background-color: $base-color-white;
-        border: 1px solid #ebeef5;
-      }
-    }
-
-    .el-card__body {
-      .echarts {
-        width: 100%;
-        height: 115px;
-      }
-    }
-  }
-
-  .card {
     ::v-deep {
+      .el-alert {
+        padding: $base-padding;
+
+        &--info.is-light {
+          min-height: 82px;
+          padding: $base-padding;
+          margin-bottom: 15px;
+          color: #909399;
+          background-color: $base-color-white;
+          border: 1px solid #ebeef5;
+        }
+      }
+
       .el-card__body {
         .echarts {
           width: 100%;
-          height: 305px;
+          height: 115px;
         }
       }
     }
-  }
 
-  .bottom {
-    padding-top: 20px;
-    margin-top: 5px;
-    color: #595959;
-    text-align: left;
-    border-top: 1px solid $base-border-color;
-  }
+    .card {
+      ::v-deep {
+        .el-card__body {
+          .echarts {
+            width: 100%;
+            height: 305px;
+          }
+        }
+      }
+    }
 
-  .table {
-    width: 100%;
-    color: #666;
-    border-collapse: collapse;
-    background-color: #fff;
+    .bottom {
+      padding-top: 20px;
+      margin-top: 5px;
+      color: #595959;
+      text-align: left;
+      border-top: 1px solid $base-border-color;
+    }
 
-    td {
-      position: relative;
-      min-height: 20px;
-      padding: 9px 15px;
-      font-size: 14px;
-      line-height: 20px;
-      border: 1px solid #e6e6e6;
+    .table {
+      width: 100%;
+      color: #666;
+      border-collapse: collapse;
+      background-color: #fff;
 
-      &:nth-child(odd) {
-        width: 20%;
-        text-align: right;
-        background-color: #f7f7f7;
+      td {
+        position: relative;
+        min-height: 20px;
+        padding: 9px 15px;
+        font-size: 14px;
+        line-height: 20px;
+        border: 1px solid #e6e6e6;
+
+        &:nth-child(odd) {
+          width: 20%;
+          text-align: right;
+          background-color: #f7f7f7;
+        }
+      }
+    }
+
+    .icon-panel {
+      height: 117px;
+      text-align: center;
+      cursor: pointer;
+
+      svg {
+        font-size: 40px;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    }
+
+    .bottom-btn {
+      button {
+        margin: 5px 10px 15px 0;
       }
     }
   }
-
-  .icon-panel {
-    height: 117px;
-    text-align: center;
-    cursor: pointer;
-
-    svg {
-      font-size: 40px;
-    }
-
-    p {
-      margin-top: 10px;
-    }
-  }
-
-  .bottom-btn {
-    button {
-      margin: 5px 10px 15px 0;
-    }
-  }
-}
 </style>
