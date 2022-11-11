@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="4">
+    <el-col :span="5">
       <div class="side-bar-container-wrapper">
         <div class="side-bar-container">
           <div class="side-bar-icon-container">
@@ -9,42 +9,16 @@
             </router-link>
           </div>
           <div class="side-bar-menu-container">
-            <el-menu class="side-bar-menu-content" text-color="#f4f4f4">
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>导航一</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item index="1-1">选项1</el-menu-item>
-                  <el-menu-item index="1-2">选项2</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group>
-                  <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                  <template slot="title">选项4</template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-              <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
-              </el-menu-item>
-              <el-menu-item index="3">
-                <i class="el-icon-document"></i>
-                <span slot="title">导航三</span>
-              </el-menu-item>
-              <el-menu-item index="4">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航四</span>
-              </el-menu-item>
-            </el-menu>
+            <el-scrollbar>
+              <el-menu class="side-bar-menu-content" text-color="#f4f4f4">
+                <MenuTree :data="menu" />
+              </el-menu>
+            </el-scrollbar>
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :span="20">
+    <el-col :span="19">
       <div class="main-container">
         <div class="main-header-container"></div>
         <div class="main-content-container">
@@ -64,12 +38,20 @@
     MenuItemGroup,
     Submenu,
     Card,
+    Scrollbar,
   } from "element-ui";
+  import { getMenu } from "@/api/common";
+  import MenuTree from "@/components/MenuTree";
+  // import Vue from "vue";
+
+  // Vue.use(Scrollbar);
 
   export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Layout",
     components: {
+      // eslint-disable-next-line vue/no-unused-components
+      MenuTree,
       [Row.name]: Row,
       [Col.name]: Col,
       [Menu.name]: Menu,
@@ -77,6 +59,21 @@
       [MenuItem.name]: MenuItem,
       [Submenu.name]: Submenu,
       [Card.name]: Card,
+      [Scrollbar.name]: Scrollbar,
+    },
+    data() {
+      return {
+        menu: null,
+      };
+    },
+    mounted() {
+      this.initData();
+    },
+    methods: {
+      async initData() {
+        let response = await getMenu();
+        this.menu = response.data;
+      },
     },
   };
 </script>
@@ -86,16 +83,14 @@
   @import "@/styles/variables.scss";
 
   .side-bar-container-wrapper {
-    overflow: hidden;
-
     .side-bar-container {
       position: fixed;
       left: 0;
       top: 0;
       bottom: 0;
       height: 100vh;
-      overflow: hidden;
       z-index: 999;
+      width: 330px;
 
       .side-bar-icon-container {
         background-color: #333743;
@@ -111,7 +106,7 @@
       }
 
       .side-bar-menu-container {
-        height: 100vh;
+        height: 100%;
         font-size: 20px;
 
         .side-bar-menu-content {
@@ -129,51 +124,10 @@
   }
 
   ::v-deep {
-    .el-menu {
+    .el-scrollbar {
+      overflow: scroll;
+      height: 100%;
       background-color: #333743;
-
-      .is-active {
-        background: #0187fb;
-      }
-
-      .is-opened {
-        background: #333743;
-      }
-    }
-
-    .el-menu-item {
-      font-size: 14px;
-      border-radius: 5px !important;
-      margin: 5px 10px;
-
-      &:hover {
-        background: #0187fb !important;
-      }
-
-      i {
-        color: white;
-      }
-    }
-
-    .el-submenu {
-      margin: 0 10px;
-      border-radius: 5px !important;
-
-      .el-submenu__title {
-        i {
-          color: white;
-        }
-
-        &:hover {
-          outline: 0 !important;
-          background: #263034 !important;
-          color: white;
-        }
-      }
-    }
-
-    .el-menu-item.is-active {
-      color: white;
     }
   }
 </style>
