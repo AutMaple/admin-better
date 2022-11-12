@@ -665,6 +665,10 @@
 
     .card {
       ::v-deep {
+        .el-card {
+          margin-bottom: 23px;
+        }
+
         .el-card__body {
           .echarts {
             width: 100%;

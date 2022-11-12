@@ -1,24 +1,24 @@
 <template>
   <el-row>
-    <el-col :span="5">
+    <el-col :span="4">
       <div class="side-bar-container-wrapper">
         <div class="side-bar-container">
-          <div class="side-bar-icon-container">
-            <router-link to="/index" class="side-bar-icon-content">
-              vue-admin-better
-            </router-link>
-          </div>
-          <div class="side-bar-menu-container">
-            <el-scrollbar>
+          <el-scrollbar>
+            <div class="side-bar-icon-container">
+              <router-link to="/index" class="side-bar-icon-content">
+                vue-admin-better
+              </router-link>
+            </div>
+            <div class="side-bar-menu-container">
               <el-menu class="side-bar-menu-content" text-color="#f4f4f4">
                 <MenuTree :data="menu" />
               </el-menu>
-            </el-scrollbar>
-          </div>
+            </div>
+          </el-scrollbar>
         </div>
       </div>
     </el-col>
-    <el-col :span="19">
+    <el-col :span="24">
       <div class="main-container">
         <div class="main-header-container"></div>
         <div class="main-content-container">
@@ -31,14 +31,14 @@
 
 <script>
   import {
-    Row,
+    Card,
     Col,
     Menu,
     MenuItem,
     MenuItemGroup,
-    Submenu,
-    Card,
+    Row,
     Scrollbar,
+    Submenu,
   } from "element-ui";
   import { getMenu } from "@/api/common";
   import MenuTree from "@/components/MenuTree";
@@ -90,7 +90,7 @@
       bottom: 0;
       height: 100vh;
       z-index: 999;
-      width: 330px;
+      width: 256px;
 
       .side-bar-icon-container {
         background-color: #333743;
@@ -125,9 +125,12 @@
 
   ::v-deep {
     .el-scrollbar {
-      overflow: scroll;
       height: 100%;
       background-color: #333743;
+    }
+
+    .el-scrollbar__wrap {
+      overflow-x: hidden;
     }
   }
 </style>
